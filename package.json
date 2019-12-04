@@ -1,0 +1,22 @@
+{
+  "name": "demos",
+  "version": "1.0.0",
+  "description": "",
+  "main": "supperagent.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "ejs": "^3.0.1",
+    "koa": "^2.11.0",
+    "node-schedule": "^1.3.2",
+    "nodemailer": "^6.3.1",
+    "superagent": "^5.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon ./app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title><%= title %></title>
+  <style type="text/css" rel="stylesheet">
+    /* * { margin: 0; padding: 0; } */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    img { vertical-align: middle; }
+    img[banner] {
+      width: 100%;
+    }
+
+    /* level - 天气等级限制 */
+    .level_6 { background-color: #631541; }
+    .level_5 { background-color: #5f52a0; }
+    .level_4 { background-color: #e2361a; }
+    .level_3 { background-color: #f39800; }
+    .level_2 { background-color: #d7af0e; }
+    .level_1 { background-color: #8fc31f; }
+    
+    .font-color-default {
+      color: #F8F8FF;
+    }
+
+    p {
+      margin: 0;
+      padding: 10px;
+      text-indent: 1em;
+      text-align: left;
+      background-color: #F5F5F5;
+    }
+    table {
+      max-width: 550px;
+      /* border-collapse:separate; */
+      border-collapse: collapse;
+      border-spacing: 0;
+    }
+    tr,
+    td {
+      margin: 0;
+      padding: 0;
+    }
+    .origin-pinpai {
+      opacity: .3;
+      background-color: #F8F8FF;
+      padding: 2px 0;
+      /* text-align: center; */
+    }
+    
+    .divider {
+      height: 4px;
+      background-color: #CDC9C9;
+    }
+
+    .tbody {
+      background-color: #00688B;
+    }
+
+    .today-wrap {
+      height: auto;
+      /* vertical-align: baseline; */
+      color: #F8F8FF;
+    }
+
+    .today-wrap h3 {
+      display: inline-block;
+      font-size: 50px;
+      margin: 0 0;
+    }
+    .today-wrap img {
+      width: 40px;
+      height: 40px;
+      vertical-align: bottom;
+    }
+
+    .padbot {
+      width: 100px;
+      padding: 0 6px 6px;
+      box-sizing: border-box;
+    }
+
+    tfoot {
+      font-size: 12px;
+    }
+
+    .lw-sty span {
+      padding-right: 2px;
+    }
+    .lw-sty span[class^="level_"] {
+      padding: 1px 2px;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <table align="center">
+    <tr>
+      <td>
+        <table>
+          <!-- thead -->
+          <thead>
+            <tr>
+              <td colspan="3">
+                <!-- <img banner src="http://image.wufazhuce.com/FoC8B8u_FMRtCH5lyg29cWkL-50k" alt=""> -->
+                <img banner src="<%= banner %>" alt="">
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                [<%= tag %>]
+                <span class="origin-pinpai">「ONE · 一个」</span>
+              </td>
+            </tr>
+            <tr>
+              <td colspan="3">
+                <p><%= description %></p>
+              </td>
+            </tr>
+          </thead>
+          <!-- tbody -->
+          <tbody class="tbody">
+            <tr><td colspan="3" class="divider"></td></tr>
+            <tr>
+              <td class="today-wrap" style="padding: 10px;" colspan="3">
+                <h3><%= middleInfo.temperature %>°</h3>
+                <img src="<%= middleInfo._topImage %>" alt="多云">
+                <b style="font-weight: bold;" ><%= middleInfo._topTxt %></b>
+              </td>
+            </tr>
+            <tr style="border-bottom: 2px solid #fff;" class="font-color-default">
+              <td style="padding: 0 10px 4px;">Tips:</td>
+              <td colspan="2" style="padding-bottom: 4px;"><%= middleInfo.tips %></td>
+            </tr>
+            <% weatherArr.forEach((item) => { %>
+              <tr class="font-color-default">
+                  <td width="100" align="center" class="padbot"><%= item.time %></td>
+                  <td width="100">
+                    <img width="20" height="20" style="vertical-align: bottom;" src="<%= item.src %>" alt="多云">
+                    <%= item.state %>
+                  </td>
+                  <td class="lw-sty">
+                    <span class="scope"><%= item.scope %></span>
+                    <span class="directionOfTheWind"><%= item.directionOfTheWind %></span>
+                    <span class="level"><%= item.level %></span>
+                    <span class="<%= item.class %>"><%= item.pollution %></span>
+                  </td>
+              </tr>
+            <% }) %>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">
+                &copy;Created by <b><%= auther %></b> on 2019/11/30
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
