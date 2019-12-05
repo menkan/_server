@@ -12,6 +12,7 @@ const schedulEvent = require('./schedules/index');
 schedulEvent()
 
 app.use(async ctx => {
+  console.log(`${ctx.method}--${ctx.url}`);
   ctx.body = 'In the create';
 });
 

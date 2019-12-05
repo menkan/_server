@@ -1,0 +1,18 @@
+2019-12-05 14:15:30: 执行queryTwoInfos函数
+2019-12-05 14:24:52: 我执行了吗
+2019-12-05 14:25:00: runing _time Function
+2019-12-05 14:25:00: data—— {"banner":"http://image.wufazhuce.com/Fu5BfK9yimn4YUSNadXcTzskqyPx","tag":"国画","description":"世上的事，认真不对，不认真更不对，执着不对，一切视作空也不对，平平常常，自自然然。","middleInfo":{"temperature":"12","_topImage":"https://h5tq.moji.com/tianqi/assets/images/weather/w1.png","_topTxt":"多云","tips":"天冷了，该加衣服了！"},"weatherArr":[{"time":"今天","src":"https://h5tq.moji.com/tianqi/assets/images/weather/w1.png","state":"多云","scope":"6° / 13°","directionOfTheWind":"北风","level":"3-4级","pollution":"58 良","class":"level_2"},{"time":"明天","src":"https://h5tq.moji.com/tianqi/assets/images/weather/w2.png","state":"阴","scope":"5° / 10°","directionOfTheWind":"东北风","level":"4-5级","pollution":"21 优","class":"level_1"},{"time":"后天","src":"https://h5tq.moji.com/tianqi/assets/images/weather/w1.png","state":"多云","scope":"5° / 11°","directionOfTheWind":"北风","level":"3-4级","pollution":"28 优","class":"level_1"}]}
+2019-12-05 14:25:06: mail send successed { accepted: [ 'xtz17515@163.com' ],
+2019-12-05 14:25:06:   rejected: [],
+2019-12-05 14:25:06:   envelopeTime: 817,
+2019-12-05 14:25:06:   messageTime: 3653,
+2019-12-05 14:25:06:   messageSize: 7309,
+2019-12-05 14:25:06:   response: '250 Ok: queued as ',
+2019-12-05 14:25:06:   envelope:
+2019-12-05 14:25:06:    { from: 'everyday_tips@foxmail.com',
+2019-12-05 14:25:06:      to: [ 'xtz17515@163.com' ] },
+2019-12-05 14:25:06:   messageId: '<b5cebf84-c596-2acc-a558-69f26eb5eb4e@foxmail.com>' }
+2019-12-05 14:25:16: GET--/
+2019-12-05 14:25:16: GET--/favicon.ico
+2019-12-05 14:26:33: GET--/xutongze
+2019-12-05 14:26:33: GET--/favicon.ico

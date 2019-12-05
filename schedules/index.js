@@ -157,17 +157,20 @@ function queryTwoInfos() {
 }
 
 function _time_mail() {
+  console.log('=========== EveryDay tips start function ===========');
   let rule = new schedule.RecurrenceRule();
   rule.dayOfWeek = [0, new schedule.Range(1, 6)];
+
+  // 上午六点三十分执行该函数;
   rule.hour = 6;
   rule.minute = 30;
   var j = schedule.scheduleJob(rule, function(){
-    // 执行信息
     console.log(`runing _time Function`);
 　  queryTwoInfos();
   });
 }
 
 // queryTwoInfos()
-console.log('执行queryTwoInfos函数');
+// console.log('执行queryTwoInfos函数');
+
 module.exports = _time_mail
