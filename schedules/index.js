@@ -14,6 +14,21 @@ const { oneHref, rmNull } = require('../utiles/utiles')
 let oneformData = '';
 let mojiWeatherData = '';
 
+let transporter = nodemailer.createTransport({
+  // 发送者厂商
+  service: "QQ",
+  // smtp port
+  port: '465',
+  // ssl安全链接
+  cecureConnection: true, // true
+
+  // 发送者邮箱与SMTP密码
+  auth: {
+    user: '1751532131@qq.com',
+    pass: 'eywezrfulbgsbifg',
+  },
+});
+
 // Take `One` context
 function oneInfos() {
   return new Promise((resolve, reject) => {
@@ -90,21 +105,6 @@ function mojiWeatherInfos () {
 
 // 邮件发送到用户
 function mailer(formData) {
-  let transporter = nodemailer.createTransport({
-    // 发送者厂商
-    service: "QQ",
-    // smtp port
-    port: '465',
-    // ssl安全链接
-    cecureConnection: true, // true
-  
-    // 发送者邮箱与SMTP密码
-    auth: {
-      user: '1751532131@qq.com',
-      pass: 'eywezrfulbgsbifg',
-    },
-  });
-  
   let data = {
     title: 'EveryDay Tips',
     auther: 'menkan_mark',
@@ -117,6 +117,13 @@ function mailer(formData) {
   const template = ejs.compile(fs.readFileSync(indexPath, 'utf-8'))
   const html = template(data)
 
+  let mail_options = {
+    from: '"Everyday Tips" <everyday_tips@foxmail.com>',
+    to: 'xtz17515@163.com',
+    subject: 'EveryDay Tips',
+    html: html,
+  };
+
   transporter.sendMail(mail_options, (error, info) => {
     if(error) {
       // 邮件发送失败
@@ -128,19 +135,21 @@ function mailer(formData) {
 }
 
 let count = 0;
-
 function queryTwoInfos() {
   Promise.all([oneInfos(), mojiWeatherInfos()]).then(result => {
     const formData = {...oneformData, ...mojiWeatherData};
-    console.log('...', JSON.stringify({...oneformData, ...mojiWeatherData}));
+    console.log('data——', JSON.stringify({...oneformData, ...mojiWeatherData}));
+    count = 0
     // 模拟发送数据
     mailer(formData);
   }).catch(error => {
     if(count < 3) {
       count++
       queryTwoInfos()
+      console.log('restart data');
     } else {
-      console.error(`count === ${count}, catch Data!`)
+      console.log('Error Count')
+      console.error(`count === ${count}, catch Data!`);
     }
     // 数据收集 Error...
     // 错误三次之后不再请求发送。 当日天气不推送..
@@ -154,9 +163,11 @@ function _time_mail() {
   rule.minute = 30;
   var j = schedule.scheduleJob(rule, function(){
     // 执行信息
-    console.log(`runing _time Function`)
+    console.log(`runing _time Function`);
 　  queryTwoInfos();
   });
 }
 
+// queryTwoInfos()
+console.log('执行queryTwoInfos函数');
 module.exports = _time_mail
