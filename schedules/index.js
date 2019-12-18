@@ -107,7 +107,7 @@ function mojiWeatherInfos () {
 function mailer(formData) {
   let data = {
     title: 'EveryDay Tips',
-    auther: 'menkan_mark',
+    auther: 'everyday tips',
     middleInfo: formData.middleInfo,
     weatherArr: formData.weatherArr,
     ...formData,
@@ -119,7 +119,7 @@ function mailer(formData) {
 
   let mail_options = {
     from: '"Everyday Tips" <everyday_tips@foxmail.com>',
-    to: 'xtz17515@163.com',
+    to: 'xtz17515@163.com,634234727@qq.com',
     subject: 'EveryDay Tips',
     html: html,
   };
