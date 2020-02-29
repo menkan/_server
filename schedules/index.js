@@ -34,7 +34,6 @@ function oneInfos() {
   return new Promise((resolve, reject) => {
     superagent.get(oneHref).end((err, res) => {
       if (err) {
-        // 可以重新尝试获取新鲜的内容
         console.error(err)
         reject(err)
         return

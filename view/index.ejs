@@ -5,110 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><%= title %></title>
+  
+</head>
+<body style="margin: 0; padding: 0;">
   <style type="text/css" rel="stylesheet">
-    /* * { margin: 0; padding: 0; } */
-    body {
-      margin: 0;
-      padding: 0;
-    }
     img { vertical-align: middle; }
-    img[banner] {
-      width: 100%;
-    }
-
-    /* level - 天气等级限制 */
+    /* level */
     .level_6 { background-color: #631541; }
     .level_5 { background-color: #5f52a0; }
     .level_4 { background-color: #e2361a; }
     .level_3 { background-color: #f39800; }
     .level_2 { background-color: #d7af0e; }
-    .level_1 { background-color: #8fc31f; }
-    
-    .font-color-default {
-      color: #F8F8FF;
-    }
-
-    p {
-      margin: 0;
-      padding: 10px;
-      text-indent: 1em;
-      text-align: left;
-      background-color: #F5F5F5;
-    }
-    table {
-      max-width: 550px;
-      /* border-collapse:separate; */
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
-    tr,
-    td {
-      margin: 0;
-      padding: 0;
-    }
-    .origin-pinpai {
-      opacity: .3;
-      background-color: #F8F8FF;
-      padding: 2px 0;
-      /* text-align: center; */
-    }
-    
-    .divider {
-      height: 4px;
-      background-color: #CDC9C9;
-    }
-
-    .tbody {
-      background-color: #00688B;
-    }
-
-    .today-wrap {
-      height: auto;
-      /* vertical-align: baseline; */
-      color: #F8F8FF;
-    }
-
-    .today-wrap h3 {
-      display: inline-block;
-      font-size: 50px;
-      margin: 0 0;
-    }
-    .today-wrap img {
-      width: 40px;
-      height: 40px;
-      vertical-align: bottom;
-    }
-
-    .padbot {
-      width: 100px;
-      padding: 0 6px 6px;
-      box-sizing: border-box;
-    }
-
-    tfoot {
-      font-size: 12px;
-    }
-
-    .lw-sty span {
-      padding-right: 2px;
-    }
-    .lw-sty span[class^="level_"] {
-      padding: 1px 2px;
-      border-radius: 3px;
-    }
+    .level_1 { background-color: #8fc31f; }  
   </style>
-</head>
-<body>
-  <table align="center">
+  <table cellspacing="0" cellpadding="0" align="center">
     <tr>
       <td>
-        <table>
+        <table cellspacing="0" cellpadding="0" style="max-width: 550px; border-collapse: collapse; border-spacing: 0;">
           <!-- thead -->
           <thead>
             <tr>
               <td colspan="3">
                 <!-- <img banner src="http://image.wufazhuce.com/FoC8B8u_FMRtCH5lyg29cWkL-50k" alt=""> -->
-                <img banner src="<%= banner %>" alt="">
+                <img style="width: 100%;" src="<%= banner %>" alt="">
               </td>
             </tr>
             <tr>
@@ -119,48 +38,48 @@
             </tr>
             <tr>
               <td colspan="3">
-                <p><%= description %></p>
+                <p style="margin: 0; padding: 10px; text-indent: 1em; text-align: left; background-color: #F5F5F5;"><%= description %></p>
               </td>
             </tr>
           </thead>
           <!-- tbody -->
-          <tbody class="tbody">
-            <tr><td colspan="3" class="divider"></td></tr>
-            <tr>
+          <tbody style="background-color: #00688B;">
+            <tr><td colspan="3" style="height: 4px; background-color: #CDC9C9;"></td></tr>
+            <tr style="color: #F8F8FF;">
               <td class="today-wrap" style="padding: 10px;" colspan="3">
-                <h3><%= middleInfo.temperature %>°</h3>
-                <img src="<%= middleInfo._topImage %>" alt="多云">
+                <h3 style="display: inline-block; font-size: 50px; margin: 0 0; color: #F8F8FF;"><%= middleInfo.temperature %>°</h3>
+                <img style=" width: 40px; height: 40px; vertical-align: bottom;" src="<%= middleInfo._topImage %>" alt="多云">
                 <b style="font-weight: bold;" ><%= middleInfo._topTxt %></b>
               </td>
             </tr>
-            <tr style="border-bottom: 2px solid #fff;" class="font-color-default">
+            <tr style="border-bottom: 2px solid #fff; color: #F8F8FF;">
               <td style="padding: 0 10px 4px;">Tips:</td>
               <td colspan="2" style="padding-bottom: 4px;"><%= middleInfo.tips %></td>
             </tr>
             <% weatherArr.forEach((item) => { %>
-              <tr class="font-color-default">
-                  <td width="100" align="center" class="padbot"><%= item.time %></td>
+              <tr style="color: #F8F8FF;">
+                  <td width="100" align="center" style="width: 100px; padding: 0 6px 6px; box-sizing: border-box;"><%= item.time %></td>
                   <td width="100">
-                    <img width="20" height="20" style="vertical-align: bottom;" src="<%= item.src %>" alt="多云">
+                    <img width="20" height="20" style="vertical-align: bottom;" src="<%= item.src %>" alt="status">
                     <%= item.state %>
                   </td>
                   <td class="lw-sty">
-                    <span class="scope"><%= item.scope %></span>
-                    <span class="directionOfTheWind"><%= item.directionOfTheWind %></span>
-                    <span class="level"><%= item.level %></span>
-                    <span class="<%= item.class %>"><%= item.pollution %></span>
+                    <span style="padding-right: 2px;"><%= item.scope %></span>
+                    <span style="padding-right: 2px;"><%= item.directionOfTheWind %></span style="padding-right: 2px;">
+                    <span style="padding: 1px 2px;"><%= item.level %></span style="padding-right: 2px;">
+                    <span style="padding-right: 2px; border-radius: 3px;" class="<%= item.class %>"><%= item.pollution %></span style="padding-right: 2px;">
                   </td>
               </tr>
             <% }) %>
           </tbody>
-          <tfoot>
+          <tfoot style="font-size: 12px;">
             <tr>
               <td colspan="3">
                 &copy;Created by <b><%= auther %></b> on 2019/11/30
               </td>
             </tr>
           </tfoot>
-        </table>
+        </table cellspacing="0">
       </td>
     </tr>
   </table>
