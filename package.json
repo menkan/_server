@@ -1,7 +1,7 @@
 {
-  "name": "demos",
-  "version": "1.0.0",
-  "description": "",
+  "name": "node-server",
+  "version": "0.0.1",
+  "description": "support demos",
   "main": "supperagent.js",
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",

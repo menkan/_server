@@ -1,5 +1,6 @@
 /**
  * @Created by menkan_mark on 2019/12/02
+ * @description 定时获取当日天气、与一句话励志语言
 */
 
 const fs = require('fs');

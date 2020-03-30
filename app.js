@@ -4,7 +4,7 @@
 
 const Koa = require('koa');
 const app = new Koa();
-const schedulEvent = require('./schedules/index');
+const schedulEvent = require('./app/schedule/index');
 
 // 定时任务
 schedulEvent()
